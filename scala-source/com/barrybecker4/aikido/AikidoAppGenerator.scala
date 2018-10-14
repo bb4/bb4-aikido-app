@@ -35,7 +35,9 @@ object AikidoAppGenerator extends App {
   private val DEFAULT_INPUT_FILE = AppHtmlGenerator.PROJECT_DIR + "techniques.xml"
 
   /** A self contained and transferable location. */
-  private val RESULT_PATH = FileUtil.getHomeDir + "../../javascript_projects/aikido_builder/"
+  private val RESULT_PATH = FileUtil.getHomeDir + "deployment/"
+
+  private val IMAGE_PATH = FileUtil.getHomeDir + "images"
 
   /** the builder DHTML application */
   private val RESULT_BUILDER_FILE = RESULT_PATH + "technique_builder.html"

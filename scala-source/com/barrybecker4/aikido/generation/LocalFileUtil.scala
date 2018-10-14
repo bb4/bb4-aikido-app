@@ -12,9 +12,9 @@ import java.io.IOException
   */
 object LocalFileUtil {
 
-  /** @param filename name of file to read from
+  /** Read a text file. Throws if could not read the file.
+    * @param filename name of file to read from
     * @return text within the file
-    * @throws IllegalStateException if could not read the file
     */
   def readTextFile(filename: String): String = {
     var br: BufferedReader = null

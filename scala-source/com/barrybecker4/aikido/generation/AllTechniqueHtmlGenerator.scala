@@ -24,10 +24,9 @@ class AllTechniqueHtmlGenerator(val config: AllTechniqueConfig = new AllTechniqu
   private var potentialImages = 0
 
 
-  /** Auto generate all elements based on the XML file.
+  /** Auto generate all elements based on the XML file. Throws IOException if error writing to the specified file.
     * @param document contains all the techniques in XML.
     * @param fileName file to write to.
-    * @throws IOException if error writing to the specified file.
     */
   @throws[IOException]
   def generateAllElementsFromDom(document: Document, fileName: String): Unit = {
