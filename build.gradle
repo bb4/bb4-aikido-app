@@ -5,17 +5,17 @@ version = '1.0-SNAPSHOT'
 apply from: 'https://raw.github.com/barrybecker4/bb4-common/master/bb4.gradle'
 
 project.archivesBaseName = 'bb4-project-template'
-mainClassName = 'com.barrybecker4.newpackage.HelloWorld'
+mainClassName = 'com.barrybecker4.aikido.AikidoAppGenerator'
 
 
-task runHelloWorld(type: JavaExec, dependsOn: classes) {
+task runAikidoAppGen(type: JavaExec, dependsOn: classes) {
     group = 'application'
-    main = 'com.barrybecker4.newpackage.HelloWorld'
+    main = 'com.barrybecker4.aikido.AikidoAppGenerator'
     classpath = sourceSets.main.runtimeClasspath
 }
 
 dependencies {
-    compile 'com.barrybecker4:bb4-ui:1.5-SNAPSHOT'
+    compile 'com.barrybecker4:bb4-common:1.5-SNAPSHOT'
 }
 
 jar {

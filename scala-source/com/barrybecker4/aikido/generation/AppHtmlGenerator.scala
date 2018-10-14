@@ -12,7 +12,7 @@ import java.io.IOException
   */
 object AppHtmlGenerator {
   /** location where data files are read from */
-  val PROJECT_DIR: String = FileUtil.getHomeDir + "source/com/barrybecker4/aikido/generation/"
+  val PROJECT_DIR: String = FileUtil.getHomeDir + "scala-source/com/barrybecker4/aikido/generation/"
   private val JAVASCRIPT_FILE = PROJECT_DIR + "methods.js"
   private val BODY_HTML_FILE = PROJECT_DIR + "body.html"
 }
