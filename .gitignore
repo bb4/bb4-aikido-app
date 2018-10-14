@@ -1,2 +1,16 @@
+.gradle
+.project
+build/
+bin/
 *.class
 *.log
+.idea
+*.iml
+*.iws
+*.ipr
+
+
+
+
+
+
