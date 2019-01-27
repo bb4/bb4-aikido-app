@@ -3,11 +3,11 @@ plugins {
 }
 description = 'Aikido app generator'
 group = 'com.barrybecker4'
-version = '1.0-SNAPSHOT'
+version = '1.0'
 
 apply from: 'https://raw.github.com/barrybecker4/bb4-common/master/bb4.gradle'
 
-project.archivesBaseName = 'bb4-project-template'
+project.archivesBaseName = 'bb4-aikido-app'
 mainClassName = 'com.barrybecker4.aikido.AikidoAppGenerator'
 
 
@@ -18,7 +18,7 @@ task runAikidoAppGen(type: JavaExec, dependsOn: classes) {
 }
 
 dependencies {
-    compile 'com.barrybecker4:bb4-common:1.5-SNAPSHOT'
+    compile 'com.barrybecker4:bb4-common:1.5'
 }
 
 jar {
