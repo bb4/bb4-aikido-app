@@ -3,7 +3,7 @@
   ~ Copyright by Barry G. Becker, 2014 - 2018. Licensed under MIT License: http://www.opensource.org/licenses/MIT
   -->
 
-<!DOCTYPE hierarchy SYSTEM "http://barrybecker4.com/schema/hierarchy.dtd">
+<!DOCTYPE hierarchy SYSTEM "https://raw.githubusercontent.com/bb4/bb4-aikido-app/master/scala-source/com/barrybecker4/aikido/hierarchy.dtd">
 <hierarchy title="Aikido Technique Hierarchy" imgpath="images/techniques/" date="5/2/2014" author="Barry Becker">
   <node id="katate_dori" label="katate dori" description="Grab left wrist.">
       <node id="tenkan_grabbed" label="tenkan entrance (grabbed)" description="Pivot on left leg while left hand grabbed.">

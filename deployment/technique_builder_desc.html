@@ -19,7 +19,8 @@ First I created an XML file that specifies the technique hierarchy.
     Inside it, I allow references to other subtrees of techniques that are defined elsewhere in the file use the &lt;use&gt; tag.
     Upon parsing of the file the references are replaced with copies of those subtrees. This saves a lot of work.
     The whole reason that I think this application can be a success is because there is so much overlap among techniques after the first few moves.
-    I also created a <a href="http://barrybecker4.com/schema/hierarchy.dtd">DTD</a> (Document Type Definition) for my XML hierarchy syntax.
+    I also created a <a href="https://raw.githubusercontent.com/bb4/bb4-aikido-app/master/scala-source/com/barrybecker4/aikido/hierarchy.dtd">DTD</a>
+    (Document Type Definition) for my XML hierarchy syntax.
     This enforces the legal structure of the data file when it gets parsed. This avoids much difficult debugging.
     Here is a snippet from the XML datafile:
 </p><pre><font size="-1"><xmp>
