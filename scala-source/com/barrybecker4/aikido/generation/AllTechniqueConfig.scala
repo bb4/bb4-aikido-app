@@ -8,7 +8,7 @@ package com.barrybecker4.aikido.generation
 class AllTechniqueConfig() {
 
   /** If in debug mode, then we do the following things differently
-    * 1) in the all techniques page, show the ids instead of the cut-points, and make the images bigger.
+    * 1) in the "all techniques" page, show the ids instead of the cut-points, and make the images bigger.
     * 2) when replacing refs, don't substitute the whole subtree, just the subtree root node.
     */
   private[generation] var debug = false

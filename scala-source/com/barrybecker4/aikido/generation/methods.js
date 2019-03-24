@@ -75,9 +75,7 @@
         return elSelect.options[elSelect.selectedIndex].value;
     }
 
-    /**
-     *  Delete future selects. Delete steps up to the final filler td.
-     */
+    /**  Delete future selects. Delete steps up to the final filler td. */
     function deleteFutureSelects(selectRow, imageRow, stepNum) {
         var len = selectRow.children.length;
         for (var i = len-2; i > stepNum; i--) {
@@ -165,7 +163,7 @@
         option.textContent = nextOpt;
         initialSelect.appendChild(option);
 
-        for (var i=0; i<attacks.length; i++) {
+        for (var i = 0; i < attacks.length; i++) {
             option = new Option("option");
             var nextOpt = attacks[i];
             option.value = nextOpt;
