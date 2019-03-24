@@ -12,7 +12,7 @@
                   <node id="right_sit_fall" label="sit fall"
                         description="Uke tucks right (closer) foot under and sits straight down and rolls backaward. Avoid hitting head by letting feet rise up."/>
               </node>
-              <node id="sumi_otoshi_elbow" label="sumi otoshi (hiji)" description="Apply pressure on uke&quot;s elbow as you enter.">
+              <node id="sumi_otoshi_elbow" label="sumi otoshi (hiji)" description="Apply pressure on uke&#39;s elbow as you enter.">
                   <use ref="zempo_nage_kneeling_right_finish_toward_left"/>
               </node>
               <node id="sumi_otoshi_inside_shoulder" label="sumi otoshi (inside shoulder)">
@@ -383,7 +383,7 @@
       <node id="fold_trap_elbow_entrance" label="fold/trap elbow">
          <node id="kubishimi" label="kubishimi" />
       </node>
-      <node id="fold_elbow_entrance" label="fold elbow" description="Hook uke&quot;s elbow with thumb and fold it so his shoulders turn.">
+      <node id="fold_elbow_entrance" label="fold elbow" description="Hook uke&#39;s elbow with thumb and fold it so his shoulders turn.">
           <node id="lock_arm_kata" label="lock arm" >
               <node id="locked_arm_kubishime" label="ushiro kubishimi" description="Rear choke with locked arm"/>
           </node>

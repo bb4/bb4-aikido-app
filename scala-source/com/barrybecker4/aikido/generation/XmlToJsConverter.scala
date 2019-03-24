@@ -53,16 +53,16 @@ class XmlToJsConverter {
     val children = node.getChildNodes
     val id = nodeInfo.getId
     if (id != null) {
-      buf.append("  img['").append(id).append("']='").append(nodeInfo.getImage).append("';\n")
-      buf.append("  label['").append(id).append("']='").append(nodeInfo.getLabel).append("';\n")
-      buf.append("  desc['").append(id).append("']='").append(nodeInfo.getDescription).append("';\n\n")
+      buf.append("  img[\"").append(id).append("\"]=\"").append(nodeInfo.getImage).append("\";\n")
+      buf.append("  label[\"").append(id).append("\"]=\"").append(nodeInfo.getLabel).append("\";\n")
+      buf.append("  desc[\"").append(id).append("\"]=\"").append(nodeInfo.getDescription).append("\";\n\n")
       val len = children.getLength
-      if (len > 0) buf.append("  next['").append(nodeInfo.getId).append("']= new Array();\n")
+      if (len > 0) buf.append("  next[\"").append(nodeInfo.getId).append("\"]= new Array();\n")
       var i = 0
       while (i < len) {
         val child = children.item(i)
-        buf.append("  next['").append(id).append("'][").append(i).append("]='")
-          .append(DomUtil.getAttribute(child, "id")).append("';\n")
+        buf.append("  next[\"").append(id).append("\"][").append(i).append("]=\"")
+          .append(DomUtil.getAttribute(child, "id")).append("\";\n")
         i += 1
       }
       if (len > 0) buf.append('\n')

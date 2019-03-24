@@ -109,7 +109,7 @@ class AllTechniqueHtmlGenerator(val config: AllTechniqueConfig = new AllTechniqu
       else info.getLabel
       buf.append("    <td title=\"")
         .append(info.getDescription)
-        .append("style=\"width:50px; max-width:150px; height:20; overflow:hidden;\">\n")
+        .append("\" style=\"width:50px; max-width:150px; height:20; overflow:hidden;\">\n")
         .append(label)
       buf.append("    </td>\n")
       i += 1
