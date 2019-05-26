@@ -15,9 +15,9 @@ import java.io.IOException
   * Instructions for creating the Aikido Technique Builder app:
   *   1. fill in the <aikido_technique>.xml file. Its dtd is hierarchy.dtd.  It assumes one root.
   *   2. Take pictures corresponding to nodes in the hierarchy using a digital camera.
-  * Store the images in /projects/javascript_projects/aikido_builder/images/katate_dori (or whichever attack)
+  * Store the images in deployment/images/katate_dori (or whichever attack)
   *   3. Run this program on the xml file to generate technique_builder.html
-  * and all_techniques.html in barrybecker4/projects/javascript_projects/aikido_builder/.
+  * and all_techniques.html in deployment/.
   *   4. upload technique_builder.html, all_techniques.html and corresponding images to website.
   *
   * Some interesting links for kubi-shime (also known as ude gurame)

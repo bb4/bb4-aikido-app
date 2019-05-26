@@ -22,6 +22,7 @@ class AllTechniqueHtmlGenerator(val config: AllTechniqueConfig = new AllTechniqu
   private var imagesShown = 0
   /** total number of images if all possible images were shown */
   private var potentialImages = 0
+  private var rowNumber = 1
 
 
   /** Auto generate all elements based on the XML file. Throws IOException if error writing to the specified file.
@@ -103,6 +104,9 @@ class AllTechniqueHtmlGenerator(val config: AllTechniqueConfig = new AllTechniqu
   private def techniqueStepsRow(parentList: util.List[NodeInfo], buf: StringBuilder): Unit = {
     buf.append("  <tr style=\"white-space:nowrap; font-size:").append(config.fontSize).append("\">\n")
     var i = 1
+    buf.append("    <td>" + rowNumber + "</td>" )
+    rowNumber += 1
+
     while (i < parentList.size) {
       val info = parentList.get(i)
       val label = if (config.debug) info.getId
@@ -120,6 +124,8 @@ class AllTechniqueHtmlGenerator(val config: AllTechniqueConfig = new AllTechniqu
   /** Write the row of thumbnail images under the titles. */
   private def thumbnailImageRow(parentList: util.List[NodeInfo], buf: StringBuilder): Unit = {
     buf.append("  <tr>\n")
+    // empty td for row number in first column of previous row.
+    buf.append("    <td></td>" )
     var i = 1
     while (i < parentList.size) {
       val info = parentList.get(i)

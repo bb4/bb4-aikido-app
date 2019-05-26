@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ Copyright by Barry G. Becker, 2014 - 2018. Licensed under MIT License: http://www.opensource.org/licenses/MIT
-  -->
+<!-- Copyright by Barry G. Becker, 2014 - 2019. Licensed under MIT License: http://www.opensource.org/licenses/MIT -->
 
 <!DOCTYPE hierarchy SYSTEM "https://raw.githubusercontent.com/bb4/bb4-aikido-app/master/scala-source/com/barrybecker4/aikido/hierarchy.dtd">
 <hierarchy title="Aikido Technique Hierarchy" imgpath="images/techniques/" date="5/2/2014" author="Barry Becker">
-  <node id="katate_dori" label="katate dori" description="Grab left wrist.">
-      <node id="tenkan_grabbed" label="tenkan entrance (grabbed)" description="Pivot on left leg while left hand grabbed.">
-          <node id="left_sumi_entrance" label="sumi entrance (grabbed)" description="Slide left foot and hand forward toward triangle point to take balance.">
-              <node id="sumi_otoshi_basic" label="sumi otoshi (basic)" description="Continue sliding in until they fall.">
+  <node id="katate_dori" label="katate dori" description="Attacker grabs left wrist.">
+      <node id="tenkan_grabbed" label="tenkan entrance (grabbed)" description="Pivot on left leg while left hand grabbed. Uke must step and turn to face nage in order to continue the attack.">
+          <node id="left_sumi_entrance_low" label="low sumi entrance (grabbed)" description="Slide left foot and left hand forward toward triangle point behind uke to take their balance.">
+              <node id="sumi_otoshi_low_basic" label="low sumi otoshi (basic)" description="Continue sliding in until they fall.">
                   <node id="right_sit_fall" label="sit fall"
                         description="Uke tucks right (closer) foot under and sits straight down and rolls backaward. Avoid hitting head by letting feet rise up."/>
               </node>
@@ -198,7 +196,7 @@
       <node id="kokyo_nage_grabbed" label="kokyo nage (grabbed)">
           <node id="kokyo_nage_throw" label="kokyo nage finish"/>
       </node>
-      <use ref="left_sumi_entrance"/>
+      <use ref="left_sumi_entrance_low"/>
       <node id="step_back_grabbed" label="step back">
           <use ref="ikkyo_omote_entrance"/>
           <use ref="ikkyo_ura_entrance"/>
@@ -401,14 +399,14 @@
 
   <node id="shomenuchi" label="shomen uchi">
       <node id="tenkan_not_grabbed" label="tenkan" description="hand under arm palm up">
-          <use ref="left_sumi_entrance"/>
+          <use ref="left_sumi_entrance_low"/>
           <node id="outside_zempo_nage" label="outside zempo nage"/>
           <node id="sankyo_uchi_entrance" label="sankyo uchi entrance" description="pick up sankyo and enter under arm">
               <use ref="sankyo" />
           </node>
       </node>
       <node id="irimi_shomen_entrance" label="irimi entrance">
-          <use ref="left_sumi_entrance"/>
+          <use ref="left_sumi_entrance_low"/>
           <use ref="kokyo_nage_grabbed"/>
           <use ref="kaiten_nage_continuance"/>
           <use ref="arm_bar_continuance"/>
@@ -456,7 +454,7 @@
               <node id="right_arm_under_shoulder_high_fall" label="high fall with arm under shoulder" description="As you throw, give support to uke at shoulder"/>
           </node>
           <use ref="arm_circle_palm_down"/>
-          <use ref="left_sumi_entrance"/>
+          <use ref="left_sumi_entrance_low"/>
           <use ref="sankyo"/>
       </node>
       <node id="mentsuki_omote_irimi_arm_over" label="irimi entrance (arm over)" description="Right arm deflects as you enter with front facing opponent.">
@@ -475,7 +473,7 @@
 
   <node id="munetsuki" label="mune tsuki">
       <node id="munetsuki_tenkan_hand_under" label="tenkan (hand under)">
-          <use ref="left_sumi_entrance"/>
+          <use ref="left_sumi_entrance_low"/>
       </node>
       <node id="munetsuki_tenkan_hand_over" label="tenkan (hand over)">
           <use ref="kote_geishi_ura_continuance"/>
@@ -509,7 +507,7 @@
       <node id="tenchi_kokyo_ura_entrance" label="tenchi nage kokyo entrance (ura)">
           <use ref="tenchi_kokyo"/>
       </node>
-      <use ref="left_sumi_entrance"/>
+      <use ref="left_sumi_entrance_low"/>
   </node>
 
   <node id="morotetori" label="morote tori">
@@ -537,6 +535,3 @@
   </node>
 
 </hierarchy>
-
-
-
