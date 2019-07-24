@@ -2,7 +2,7 @@
 <!-- Copyright by Barry G. Becker, 2014 - 2019. Licensed under MIT License: http://www.opensource.org/licenses/MIT -->
 
 <!DOCTYPE hierarchy SYSTEM "https://raw.githubusercontent.com/bb4/bb4-aikido-app/master/scala-source/com/barrybecker4/aikido/hierarchy.dtd">
-<hierarchy title="Aikido Technique Hierarchy" imgpath="images/techniques/" date="5/2/2014" author="Barry Becker">
+<hierarchy title="Aikido Technique Hierarchy" imgpath="techniques/images/" date="5/2/2014" author="Barry Becker">
   <node id="katate_dori" label="katate dori" description="Attacker grabs left wrist.">
       <node id="tenkan_grabbed" label="tenkan entrance (grabbed)" description="Pivot on left leg while left hand grabbed. Uke must step and turn to face nage in order to continue the attack.">
           <node id="left_sumi_entrance_low" label="low sumi entrance (grabbed)" description="Slide left foot and left hand forward toward triangle point behind uke to take their balance.">

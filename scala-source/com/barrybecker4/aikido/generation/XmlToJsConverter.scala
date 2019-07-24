@@ -20,11 +20,11 @@ class XmlToJsConverter {
       val buf = new StringBuilder
       buf.append('\n')
       buf.append("  // setup structures for grammar\n")
-      buf.append("  var attacks = new Array();\n")
-      buf.append("  var next = new Array();\n")
-      buf.append("  var img = new Array();\n")
-      buf.append("  var label = new Array();\n\n")
-      buf.append("  var desc = new Array();\n\n")
+      buf.append("  var attacks = [];\n")
+      buf.append("  var next = [];\n")
+      buf.append("  var img = [];\n")
+      buf.append("  var label = [];\n\n")
+      buf.append("  var desc = [];\n\n")
       val root = document.getDocumentElement
       val imgPath = DomUtil.getAttribute(root, "imgpath")
       val children = root.getChildNodes
