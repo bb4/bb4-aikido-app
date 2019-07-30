@@ -283,17 +283,15 @@
             <use ref="ikkyo_ura_entrance"/>
             <use ref="yonkyo_entrance"/>
             <use ref="gokyo_entrance"/>
-            <node description="step forward, raise hand" id="step_forward_hand_to_head"
-                  label="step forward, raise hand">
-                <use ref="shihonage"/>
-                <use ref="zempo_nage_left_finish_toward_right"/>
-            </node>
             <node description="hiji kime entrance" id="hiji_kime_entrance" label="hiji kime entrance">
                 <use ref="zempo_nage_left_finish_toward_right"/>
                 <node description="hiji kime koshinage" id="hiji_kime_koshinage" label="hiji kime koshinage"/>
             </node>
         </node>
-        <use ref="step_forward_hand_to_head"/>
+        <node description="step forward, raise hand" id="step_forward_hand_to_head" label="step forward, raise hand">
+            <use ref="shihonage"/>
+            <use ref="zempo_nage_left_finish_toward_right"/>
+        </node>
         <use ref="shihonage_entrance"/>
         <node description="irimi entrance (break grip)" id="irimi_entrance_break_grip"
               label="irimi entrance (break grip)">
