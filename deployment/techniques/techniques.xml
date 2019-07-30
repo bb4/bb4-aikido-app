@@ -4,6 +4,9 @@
     <node description="Attacker grabs left wrist." id="katate_dori" label="katate dori">
         <node description="Pivot on left leg while left hand grabbed. Uke must step and turn to face nage in order to continue the attack. This movement is known as tai no henko."
               id="tenkan_grabbed" label="tenkan entrance (grabbed)">
+            <node description="kokyo nage (grabbed)" id="kokyo_nage_grabbed" label="kokyo nage (grabbed)">
+                <node description="kokyo nage finish" id="kokyo_nage_throw" label="kokyo nage finish"/>
+            </node>
             <node description="Slide left foot and left hand forward toward triangle point behind uke to take their balance."
                   id="left_sumi_entrance_low" label="low sumi entrance (grabbed)">
                 <node description="Continue sliding in until they fall." id="sumi_otoshi_low_basic"
@@ -115,8 +118,7 @@
                                           label="udekimonage finish"/>
                                 </node>
                                 <node description="kokyo nage" id="kokyo_nage_grabbing" label="kokyo nage">
-                                    <node description="kokyo nage finish" id="kokyo_nage_throw"
-                                          label="kokyo nage finish"/>
+                                    <use ref="kokyo_nage_throw"/>
                                 </node>
                                 <node description="shiho koshinage (hand at center)" id="shiho_koshinage"
                                       label="shiho koshinage (hand at center)">
@@ -274,9 +276,6 @@
             <node description="hook_arm" id="hook_arm" label="hook_arm">
                 <use ref="zempo_nage_left_finish_toward_left"/>
             </node>
-        </node>
-        <node description="kokyo nage (grabbed)" id="kokyo_nage_grabbed" label="kokyo nage (grabbed)">
-            <use ref="kokyo_nage_throw"/>
         </node>
         <use ref="left_sumi_entrance_low"/>
         <node description="step back" id="step_back_grabbed" label="step back">
