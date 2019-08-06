@@ -4,7 +4,8 @@
     <node description="Attacker grabs left wrist." id="katate_dori" label="katate dori">
         <node description="Pivot on left leg while left hand grabbed. Uke must step and turn to face nage in order to continue the attack. This movement is known as tai no henko."
               id="tenkan_grabbed" label="tenkan entrance (grabbed)">
-            <node description="kokyo nage (grabbed)" id="kokyo_nage_grabbed" label="kokyo nage (grabbed)">
+            <node description="Raise arm and turn toward uke, rotating from center." id="kokyo_nage_grabbed"
+                  label="kokyo nage (grabbed)">
                 <node description="kokyo nage finish" id="kokyo_nage_throw" label="kokyo nage finish"/>
             </node>
             <node description="Slide left foot and left hand forward toward triangle point behind uke to take their balance."
@@ -27,7 +28,10 @@
                       label="sumi otoshi (outside shoulder)">
                     <use ref="zempo_nage_kneeling_right_finish_toward_left"/>
                 </node>
-                <node description="sumi otoshi (head)" id="sumi_otoshi_head" label="sumi otoshi (head)"/>
+                <node description="sumi otoshi (head)" id="sumi_otoshi_head" label="sumi otoshi (head)">
+                    <node description="Project uke into right side roll" id="zenpo_nage_right_finish_toward_left"
+                          label="right zempo nage "/>
+                </node>
                 <node description="koshinage (morote seoinage)" id="sumi_koshinage_two_hands_on_arm"
                       label="koshinage (morote seoinage)">
                     <node description="koshinage finish" id="koshinage_right_finish" label="koshinage finish"/>
