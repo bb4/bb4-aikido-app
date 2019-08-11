@@ -15,17 +15,17 @@
                     <node description="Uke tucks right (closer) foot under and sits straight down and rolls backaward. Avoid hitting head by letting feet rise up."
                           id="right_sit_fall" label="sit fall"/>
                 </node>
-                <node description="Apply pressure on uke's elbow as you enter." id="sumi_otoshi_elbow"
-                      label="sumi otoshi (hiji)">
-                    <node description="zempo nage" id="zempo_nage_kneeling_right_finish_toward_left"
-                          label="zempo nage"/>
+                <node description="Apply pressure on uke's elbow as you enter and step forward iwth rioght foot."
+                      id="sumi_otoshi_elbow" label="sumi otoshi (hiji)">
+                    <node description="Project uke into right sode forward roll."
+                          id="zempo_nage_kneeling_right_finish_toward_left" label="zempo nage"/>
                 </node>
-                <node description="sumi otoshi (inside shoulder)" id="sumi_otoshi_inside_shoulder"
-                      label="sumi otoshi (inside shoulder)">
+                <node description="Place hand on shoulder, and with arm extended, step right and throw."
+                      id="sumi_otoshi_inside_shoulder" label="sumi otoshi (inside shoulder)">
                     <use ref="zempo_nage_kneeling_right_finish_toward_left"/>
                 </node>
-                <node description="sumi otoshi (outside shoulder)" id="sumi_otoshi_outside_shoulder"
-                      label="sumi otoshi (outside shoulder)">
+                <node description="Sumi otoshi (corner drop). Extend arm under shoulder with palm up. Then turn palm down as you step forward with right foot."
+                      id="sumi_otoshi_outside_shoulder" label="sumi otoshi (outside shoulder)">
                     <use ref="zempo_nage_kneeling_right_finish_toward_left"/>
                 </node>
                 <node description="sumi otoshi (head)" id="sumi_otoshi_head" label="sumi otoshi (head)">
@@ -245,7 +245,8 @@
                             <node description="arm bar pin" id="arm_bar_pin" label="arm bar pin"/>
                         </node>
                     </node>
-                    <node description="koshi nage (past head)" id="koshi_nage_past_head" label="koshi nage (past head)">
+                    <node description="koshi nage (arm past head)" id="koshi_nage_past_head"
+                          label="koshi nage (past head)">
                         <use ref="koshinage_right_finish"/>
                     </node>
                 </node>
