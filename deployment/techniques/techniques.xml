@@ -4,8 +4,9 @@
     <node description="Attacker grabs left wrist." id="katate_dori" label="katate dori">
         <node description="Pivot on left leg while left hand grabbed. Uke must step and turn to face nage in order to continue the attack. This movement is known as tai no henko."
               id="tenkan_grabbed" label="tenkan entrance (grabbed)">
-            <node description="kokyo nage (grabbed)" id="kokyo_nage_grabbed" label="kokyo nage (grabbed)">
-                <node description="kokyo nage finish" id="kokyo_nage_throw" label="kokyo nage finish"/>
+            <node description="Raise arm and turn toward uke, rotating from center." id="kokyu_nage_grabbed"
+                  label="kokyu nage (grabbed)">
+                <node description="kokyu nage finish" id="kokyu_nage_throw" label="kokyu nage finish"/>
             </node>
             <node description="Slide left foot and left hand forward toward triangle point behind uke to take their balance."
                   id="left_sumi_entrance_low" label="low sumi entrance (grabbed)">
@@ -14,34 +15,43 @@
                     <node description="Uke tucks right (closer) foot under and sits straight down and rolls backaward. Avoid hitting head by letting feet rise up."
                           id="right_sit_fall" label="sit fall"/>
                 </node>
-                <node description="Apply pressure on uke's elbow as you enter." id="sumi_otoshi_elbow"
-                      label="sumi otoshi (hiji)">
-                    <node description="zempo nage" id="zempo_nage_kneeling_right_finish_toward_left"
-                          label="zempo nage"/>
+                <node description="Apply pressure on uke's elbow as you enter and step forward iwth rioght foot."
+                      id="sumi_otoshi_elbow" label="sumi otoshi (hiji)">
+                    <node description="Project uke into right sode forward roll."
+                          id="zempo_nage_kneeling_right_finish_toward_left" label="zempo nage"/>
                 </node>
-                <node description="sumi otoshi (inside shoulder)" id="sumi_otoshi_inside_shoulder"
-                      label="sumi otoshi (inside shoulder)">
+                <node description="Place hand on shoulder, and with arm extended, step right and throw."
+                      id="sumi_otoshi_inside_shoulder" label="sumi otoshi (inside shoulder)">
                     <use ref="zempo_nage_kneeling_right_finish_toward_left"/>
                 </node>
-                <node description="sumi otoshi (outside shoulder)" id="sumi_otoshi_outside_shoulder"
-                      label="sumi otoshi (outside shoulder)">
+                <node description="Sumi otoshi (corner drop). Extend arm under shoulder with palm up. Then turn palm down as you step forward with right foot."
+                      id="sumi_otoshi_outside_shoulder" label="sumi otoshi (outside shoulder)">
                     <use ref="zempo_nage_kneeling_right_finish_toward_left"/>
                 </node>
-                <node description="sumi otoshi (head)" id="sumi_otoshi_head" label="sumi otoshi (head)"/>
-                <node description="koshinage (morote seoinage)" id="sumi_koshinage_two_hands_on_arm"
-                      label="koshinage (morote seoinage)">
+                <node description="Extend hand forward and place under uke's jaw. With arm extended, step forward right and project uke into fall or roll."
+                      id="sumi_otoshi_head" label="sumi otoshi (head)">
+                    <node description="Project uke into right side roll" id="zenpo_nage_right_finish_toward_left"
+                          label="right zempo nage "/>
+                </node>
+                <node description="Load uke over hips and throw with koshinage (morote seoinage)."
+                      id="sumi_koshinage_two_hands_on_arm" label="koshinage (morote seoinage)">
                     <node description="koshinage finish" id="koshinage_right_finish" label="koshinage finish"/>
                 </node>
-                <node description="koshinage (arm around waist)" id="sumi_koshinage_arm_around_waist"
-                      label="koshinage (arm around waist)">
+                <node description="Wrap hand around uke's waist, step forward, load him on hips, and throw with koshi nage."
+                      id="sumi_koshinage_arm_around_waist" label="koshinage (arm around waist)">
                     <use ref="koshinage_right_finish"/>
                 </node>
-                <node description="Step straight through (irimi) and throw into forward roll."
-                      id="irimi_uchi_zempo_nage" label="irimi uchi zempo nage">
-                    <node description="zempo nage" id="zempo_nage_left_finish_toward_left" label="zempo nage"/>
+                <node description="Under under uke's arm and project into forward roll." id="irimi_uchi_zempo_nage"
+                      label="irimi uchi zempo nage">
+                    <node description="Project uke into left side forward roll." id="zempo_nage_left_finish_toward_left"
+                          label="zempo nage"/>
                 </node>
-                <node description="Turn (tenkan) and throw into forward roll." id="tenkan_uchi_zempo_nage"
-                      label="tenkan uchi zempo nage">
+                <node description="Enter under arm, pivot 180 degrees so that you are in the position shown, then throw into left side forward roll."
+                      id="tenkan_uchi_zempo_nage" label="tenkan uchi zempo nage">
+                    <use ref="zempo_nage_left_finish_toward_left"/>
+                </node>
+                <node description="Continue motion of left hand out and up, then tenkan, sweeping right leg 180 degrees to rear."
+                      id="soto_tenkan_zempo_naqe" label=" arc hand outside and tenkan">
                     <use ref="zempo_nage_left_finish_toward_left"/>
                 </node>
                 <node description="ikkyo omote entrance" id="ikkyo_omote_entrance" label="ikkyo omote entrance">
@@ -80,8 +90,8 @@
                                   id="sankyo_nage" label="sankyo nage">
                                 <use ref="zempo_nage_left_finish_toward_left"/>
                             </node>
-                            <node description="sankyo bring behind" id="sankyo_bring_around"
-                                  label="sankyo bring behind">
+                            <node description="Apply the sankyo to get uke moving to the read, then reverse."
+                                  id="sankyo_bring_around" label="sankyo bring behind">
                                 <node description="kneeling zempo nage" id="kneeling_right_zempo_nage"
                                       label="kneeling zempo nage">
                                     <use ref="zempo_nage_kneeling_right_finish_toward_left"/>
@@ -104,7 +114,8 @@
                         <node description="ikkyo uchi turned" id="ikkyo_uchi_turned" label="ikkyo uchi turned">
                             <node description="direct downward throw" id="direct_downward_throw"
                                   label="direct downward throw"/>
-                            <node description="shihonage entrance" id="shihonage_entrance" label="shihonage entrance">
+                            <node description="Turn hips fully so that uke's shoulders are turned."
+                                  id="shihonage_entrance" label="shihonage entrance">
                                 <node description="shihonage" id="shihonage" label="shihonage">
                                     <node description="shihonage finish" id="shihonage_regular_throw"
                                           label="shihonage finish">
@@ -113,15 +124,17 @@
                                     <node description="shihonage high fall" id="shihonage_high_throw"
                                           label="shihonage high fall"/>
                                 </node>
-                                <node description="udekimonage" id="udekimonage" label="udekimonage">
+                                <node description="Extend hand palm up under uke's elbow. Turn hips, then step forward and extend hand palm down.&#10;"
+                                      id="udekimonage" label="udekimonage">
                                     <node description="udekimonage finish" id="udekimonage_left_finish_toward_right"
                                           label="udekimonage finish"/>
                                 </node>
-                                <node description="kokyo nage" id="kokyo_nage_grabbing" label="kokyo nage">
-                                    <use ref="kokyo_nage_throw"/>
+                                <node description="Open left arm and apply pressure along ukes jawline. Turn hips toward uke in order to displace his center."
+                                      id="kokyu_nage_grabbing" label="kokyu nage">
+                                    <use ref="kokyu_nage_throw"/>
                                 </node>
-                                <node description="shiho koshinage (hand at center)" id="shiho_koshinage"
-                                      label="shiho koshinage (hand at center)">
+                                <node description="From the shihonage entrance, wrap hand around uke's waist and step through while loading him over your hips.&#10;"
+                                      id="shiho_koshinage" label="shiho koshinage (hand at center)">
                                     <node description="koshinage finish" id="koshinage_left_finish"
                                           label="koshinage finish"/>
                                 </node>
@@ -132,24 +145,26 @@
                                               label="iriminage finish"/>
                                     </node>
                                 </node>
-                                <node description="koshinage (kata guruma)" id="koshinage_kata_guruma"
-                                      label="koshinage (kata guruma)">
+                                <node description="Continue extending uke's arm over the top until his whol body is loaded over your hips.&#10;"
+                                      id="koshinage_kata_guruma" label="koshinage (kata guruma)">
                                     <use ref="koshinage_right_finish"/>
                                 </node>
-                                <node description="aiki otoshi entrance" id="sukui_nage_entrance"
-                                      label="aiki otoshi entrance">
+                                <node description="Aiki otoshi entrance. Pass arm over head and prepare to grab uke's legs. Aikido's aikoi otoshi is very much like jiudo's sukui nage. "
+                                      id="sukui_nage_entrance" label="aiki otoshi entrance">
                                     <node description="aiki otoshi" id="koshinage_sukui_nage" label="aiki otoshi">
                                         <node description="aiki otoshi finish" id="sukui_nage_finish"
                                               label="aiki otoshi finish"/>
                                     </node>
                                 </node>
-                                <node description="elbow lock" id="elbow_lock" label="elbow lock">
-                                    <use ref="kokyo_nage_grabbing"/>
-                                    <node description="choke" id="omote_choke" label="choke"/>
-                                    <node description="locked kote geishi" id="locked_kote_geishi"
-                                          label="locked kote geishi">
-                                        <node description="locked kote geishi throw" id="locked_kote_geishi_finish"
-                                              label="locked kote geishi throw">
+                                <node description="Your left arm goes over uke's right arm and grabs your own right wrist. The act of squeezing your left wrist will apply painful pressure to uke's right arm.&#10;"
+                                      id="elbow_lock" label="elbow lock">
+                                    <use ref="kokyu_nage_grabbing"/>
+                                    <node description="Begin if performing kokyu nage, but continue until you can grab your own obi with your left hand. Step back left."
+                                          id="omote_choke" label="choke"/>
+                                    <node description="Without releasing the lock on the elbow, raise his rm up, and pivot toward him 180 degrees to perform a kote geishi throw."
+                                          id="locked_kote_geishi" label="locked kote geishi">
+                                        <node description="Drop right knee to the ground to perform locked kote geishi throw."
+                                              id="locked_kote_geishi_finish" label="locked kote geishi throw">
                                             <node description="locked kote geishi pin" id="locked_kote_geishi_pin"
                                                   label="locked kote geishi pin"/>
                                         </node>
@@ -169,11 +184,11 @@
                     </node>
                 </node>
                 <node description="yonkyo entrance" id="yonkyo_entrance" label="yonkyo entrance">
-                    <node description="yonkyo ura" id="yonkyo_ura" label="yonkyo ura">
+                    <node description="yonkyo omote" id="yonkyo_omote" label="yonkyo omote">
                         <node description="yonkyo pin (standing)" id="yonkyo_pin_standing"
                               label="yonkyo pin (standing)"/>
                     </node>
-                    <node description="yonkyo omote" id="yonkyo_omote" label="yonkyo omote">
+                    <node description="yonkyo ura" id="yonkyo_ura" label="yonkyo ura">
                         <use ref="yonkyo_pin_standing"/>
                     </node>
                     <node description="sankyo-like (omote)" id="sankyo_like_continuance_omote"
@@ -241,7 +256,8 @@
                             <node description="arm bar pin" id="arm_bar_pin" label="arm bar pin"/>
                         </node>
                     </node>
-                    <node description="koshi nage (past head)" id="koshi_nage_past_head" label="koshi nage (past head)">
+                    <node description="koshi nage (arm past head)" id="koshi_nage_past_head"
+                          label="koshi nage (past head)">
                         <use ref="koshinage_right_finish"/>
                     </node>
                 </node>
@@ -278,7 +294,8 @@
             </node>
         </node>
         <use ref="left_sumi_entrance_low"/>
-        <node description="step back" id="step_back_grabbed" label="step back">
+        <node description="step back off the line of attack, and draw uke down and off balance as shown.&#10;"
+              id="step_back_grabbed" label="step back">
             <use ref="ikkyo_omote_entrance"/>
             <use ref="ikkyo_ura_entrance"/>
             <use ref="yonkyo_entrance"/>
@@ -360,9 +377,9 @@
                 <use ref="iriminage_turn"/>
             </node>
         </node>
-        <node description="kokyo nage entrance" id="kokyo_nage_entrance" label="kokyo nage entrance">
-            <node description="koyonage" id="kokyonage" label="koyonage">
-                <use ref="kokyo_nage_throw"/>
+        <node description="kokyu nage entrance" id="kokyu_nage_entrance" label="kokyu nage entrance">
+            <node description="koyonage" id="kokyunage" label="koyonage">
+                <use ref="kokyu_nage_throw"/>
             </node>
         </node>
         <node description="koshi entrance" id="koshi_entrance" label="koshi entrance">
@@ -448,7 +465,7 @@
             </node>
             <use ref="iriminage_omote_continuance"/>
             <use ref="zempo_nage_left_finish_toward_right"/>
-            <use ref="kokyo_nage_grabbed"/>
+            <use ref="kokyu_nage_grabbed"/>
         </node>
         <node description="shiho nage ura" id="katatori_shihonage_ura" label="shiho nage ura">
             <use ref="shihonage_regular_throw"/>
@@ -469,7 +486,7 @@
         </node>
         <node description="irimi entrance" id="irimi_shomen_entrance" label="irimi entrance">
             <use ref="left_sumi_entrance_low"/>
-            <use ref="kokyo_nage_grabbed"/>
+            <use ref="kokyu_nage_grabbed"/>
             <use ref="kaiten_nage_continuance"/>
             <use ref="arm_bar_continuance"/>
             <use ref="iriminage_turn"/>
@@ -535,7 +552,7 @@
         </node>
         <node description="tenkan (hand over)" id="munetsuki_tenkan_hand_over" label="tenkan (hand over)">
             <use ref="kote_geishi_ura_continuance"/>
-            <use ref="kokyonage"/>
+            <use ref="kokyunage"/>
             <use ref="kaiten_nage_continuance"/>
             <use ref="rokkyo"/>
         </node>
@@ -556,16 +573,16 @@
         <node description="tenchi entrance (ura)" id="tenchi_ura_entrance" label="tenchi entrance (ura)">
             <use ref="tenchinage"/>
         </node>
-        <node description="tenchi kokyo entrance (omote)" id="tenchi_kokyo_omote_entrance"
-              label="tenchi kokyo entrance (omote)">
-            <node description="tenchi kokyo" id="tenchi_kokyo" label="tenchi kokyo">
+        <node description="tenchi kokyu entrance (omote)" id="tenchi_kokyu_omote_entrance"
+              label="tenchi kokyu entrance (omote)">
+            <node description="tenchi kokyu" id="tenchi_kokyu" label="tenchi kokyu">
                 <use ref="zempo_nage_kneeling_right_finish_toward_left"/>
                 <node description="tench koshi nage" id="tenchi_koshi_nage" label="tench koshi nage"/>
             </node>
         </node>
-        <node description="tenchi nage kokyo entrance (ura)" id="tenchi_kokyo_ura_entrance"
-              label="tenchi nage kokyo entrance (ura)">
-            <use ref="tenchi_kokyo"/>
+        <node description="tenchi nage kokyu entrance (ura)" id="tenchi_kokyu_ura_entrance"
+              label="tenchi nage kokyu entrance (ura)">
+            <use ref="tenchi_kokyu"/>
         </node>
         <use ref="left_sumi_entrance_low"/>
     </node>
