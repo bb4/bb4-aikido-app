@@ -1,14 +1,15 @@
 plugins {
-    id "com.github.maiflai.scalatest" version "0.25" // needed to run scala tests
+    id "com.github.maiflai.scalatest" version "0.26" // needed to run scala tests
 }
 description = 'Aikido app generator'
 group = 'com.barrybecker4'
 version = '1.6-SNAPSHOT'
+ext {
+    archivesBaseName = 'bb4-aikido-app'
+    mainClass = 'com.barrybecker4.aikido.AikidoAppGenerator'
+}
 
 apply from: 'https://raw.githubusercontent.com/bb4/bb4-common/master/bb4.gradle'
-
-project.archivesBaseName = 'bb4-aikido-app'
-mainClassName = 'com.barrybecker4.aikido.AikidoAppGenerator'
 
 
 task runAikidoAppGen(type: JavaExec, dependsOn: classes) {
@@ -19,16 +20,6 @@ task runAikidoAppGen(type: JavaExec, dependsOn: classes) {
 
 dependencies {
     compile 'com.barrybecker4:bb4-common:1.6-SNAPSHOT'
-}
-
-jar {
-    archiveName = "${archivesBaseName}-${version}.jar"
-    manifest {
-        attributes 'Implementation-Title': 'aikido app generator code',
-                'Implementation-Version': version,
-                'provider': 'gradle',
-                'Main-Class': mainClassName
-    }
 }
 
 // This allows publishing of this project library to Sonatype
