@@ -14,7 +14,7 @@ plugins {
 }
 description = 'Aikido app generator'
 group = 'com.barrybecker4'
-version = '1.6-SNAPSHOT'
+version = '1.6'
 ext {
     archivesBaseName = 'bb4-aikido-app'
     mainClass = 'com.barrybecker4.aikido.AikidoAppGenerator'
