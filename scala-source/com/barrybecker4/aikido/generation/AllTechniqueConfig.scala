@@ -18,7 +18,7 @@ class AllTechniqueConfig() {
   private[generation] var borderWidth = 1
   private[generation] var imageSize = 80
 
-  def this(debug: Boolean, imageSize: Int, fontSize: Int, borderWidth: Int, showOnlyUniqueImages: Boolean) {
+  def this(debug: Boolean, imageSize: Int, fontSize: Int, borderWidth: Int, showOnlyUniqueImages: Boolean) = {
     this()
     this.debug = debug
     this.showImages = imageSize > 0

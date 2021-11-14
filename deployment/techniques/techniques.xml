@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE hierarchy SYSTEM "https://raw.githubusercontent.com/bb4/bb4-aikido-app/master/scala-source/com/barrybecker4/aikido/hierarchy.dtd">
-<hierarchy author="Barry Becker" date="5/2/2014" imgpath="techniques/images" title="Aikido Technique Hierarchy">
+<hierarchy author="Barry Becker" date="5/2/2014" imgpath="techniques/images/" title="Aikido Technique Hierarchy">
     <node description="Attacker grabs left wrist." id="katate_dori" label="katate dori">
         <node description="Pivot on left leg while left hand grabbed. Uke must step and turn to face nage in order to continue the attack. This movement is known as tai no henko."
               id="tenkan_grabbed" label="tenkan entrance (grabbed)">

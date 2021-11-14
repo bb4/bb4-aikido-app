@@ -12,33 +12,33 @@ import org.w3c.dom.Node
   */
 class XmlToJsConverter {
 
-  /** Set up the javascript array structures based on the xml technique hierarchy.
-    * @param document the DOM
-    * @return javascript string
-    */
-    def generateJavaScript(document: Document): String = {
-      val buf = new StringBuilder
-      buf.append('\n')
-      buf.append("  // setup structures for grammar\n")
-      buf.append("  var attacks = [];\n")
-      buf.append("  var next = [];\n")
-      buf.append("  var img = [];\n")
-      buf.append("  var label = [];\n\n")
-      buf.append("  var desc = [];\n\n")
-      val root = document.getDocumentElement
-      val imgPath = DomUtil.getAttribute(root, "imgpath")
-      val children = root.getChildNodes
-      var i = 0
-      while (i < children.getLength) {
-        val child = children.item(i)
-        val nodeInfo = new NodeInfo(imgPath, child)
-        buf.append("  attacks[").append(i).append("]='").append(nodeInfo.getId).append("';\n")
-        i += 1
-      }
-      buf.append(genJSForNode(root, imgPath))
-      buf.append('\n')
-      buf.toString
+/** Set up the javascript array structures based on the xml technique hierarchy.
+  * @param document the DOM
+  * @return javascript string
+  */
+  def generateJavaScript(document: Document): String = {
+    val buf = new StringBuilder
+    buf.append('\n')
+    buf.append("  // setup structures for grammar\n")
+    buf.append("  var attacks = [];\n")
+    buf.append("  var next = [];\n")
+    buf.append("  var img = [];\n")
+    buf.append("  var label = [];\n\n")
+    buf.append("  var desc = [];\n\n")
+    val root = document.getDocumentElement
+    val imgPath = DomUtil.getAttribute(root, "imgpath")
+    val children = root.getChildNodes
+    var i = 0
+    while (i < children.getLength) {
+      val child = children.item(i)
+      val nodeInfo = new NodeInfo(imgPath, child)
+      buf.append("  attacks[").append(i).append("]='").append(nodeInfo.getId).append("';\n")
+      i += 1
     }
+    buf.append(genJSForNode(root, imgPath))
+    buf.append('\n')
+    buf.toString
+  }
 
   /**
     * Recursively generate the javascript structures.

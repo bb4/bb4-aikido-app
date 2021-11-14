@@ -30,7 +30,7 @@ import java.io.IOException
   *   - add more descriptions
   * @author Barry Becker
   */
-object AikidoAppGenerator extends App {
+object AikidoAppGenerator {
 
   private val DEFAULT_INPUT_FILE = AppHtmlGenerator.DATA_DIR + "techniques.xml"
 
@@ -55,23 +55,26 @@ object AikidoAppGenerator extends App {
     new AppHtmlGenerator().generateHTMLApp(document, fileName)
   }
 
-  var document: Document = _
-  var filename = DEFAULT_INPUT_FILE
-  if (args.length == 1) filename = args(0)
-  else {
-    println("Usage: <xml file containing data>")
-    println("Since no argument was supplied, " + filename + " will be used.")
+  def main(args: Array[String]): Unit = {
+    var document: Document = null
+    var filename = DEFAULT_INPUT_FILE
+    if (args.length == 1) filename = args(0)
+    else {
+      println("Usage: <xml file containing data>")
+      println("Since no argument was supplied, " + filename + " will be used.")
+    }
+    val file = new File(filename)
+    println("parsing xml from " + file)
+    document = DomUtil.parseXMLFile(file, replaceUseWithDeepCopy = true)
+    try {
+      generateHTMLAppFromDom(document, RESULT_BUILDER_FILE)
+      var config = new AllTechniqueConfig(false, 160, 10, 0, false)
+      new AllTechniqueHtmlGenerator(config).generateAllElementsFromDom(document, RESULT_ALL_FILE)
+      config = new AllTechniqueConfig(true, 100, 9, 0, true)
+      new AllTechniqueHtmlGenerator(config).generateAllElementsFromDom(document, RESULT_UNIQUE_FILE)
+    } catch {
+      case e: IOException => e.printStackTrace()
+    }
   }
-  val file = new File(filename)
-  println("parsing xml from " + file)
-  document = DomUtil.parseXMLFile(file, replaceUseWithDeepCopy = true)
-  try {
-    generateHTMLAppFromDom(document, RESULT_BUILDER_FILE)
-    var config = new AllTechniqueConfig(false, 160, 10, 0, false)
-    new AllTechniqueHtmlGenerator(config).generateAllElementsFromDom(document, RESULT_ALL_FILE)
-    config = new AllTechniqueConfig(true, 100, 9, 0, true)
-    new AllTechniqueHtmlGenerator(config).generateAllElementsFromDom(document, RESULT_UNIQUE_FILE)
-  } catch {
-    case e: IOException => e.printStackTrace()
-  }
+
 }

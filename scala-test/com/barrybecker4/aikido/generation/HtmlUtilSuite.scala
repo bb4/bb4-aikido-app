@@ -1,9 +1,9 @@
 package com.barrybecker4.aikido.generation
 
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
 
-class HtmlUtilSuite extends FunSuite {
+class HtmlUtilSuite extends AnyFunSuite {
 
   test("get html file head") {
     assertResult(
