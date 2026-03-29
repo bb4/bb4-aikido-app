@@ -10,6 +10,9 @@ bin/
 *.ipr
 deplyment/
 out/
+.vscode/settings.json
+.bloop/
+.metals/
 
 
 

@@ -65,7 +65,7 @@ object AikidoAppGenerator {
     }
     val file = new File(filename)
     println("parsing xml from " + file)
-    document = DomUtil.parseXMLFile(file, replaceUseWithDeepCopy = true)
+    document = DomUtil.parseXMLFile(file)
     try {
       generateHTMLAppFromDom(document, RESULT_BUILDER_FILE)
       var config = new AllTechniqueConfig(false, 160, 10, 0, false)
