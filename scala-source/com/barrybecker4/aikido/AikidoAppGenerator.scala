@@ -30,14 +30,12 @@ import java.io.IOException
   *   - add more descriptions
   * @author Barry Becker
   */
-object AikidoAppGenerator {
+object AikidoAppGenerator:
 
   private val DEFAULT_INPUT_FILE = AppHtmlGenerator.DATA_DIR + "techniques.xml"
 
-  /** A self contained and transferable location. */
+  /** A self-contained and transferable location. */
   private val RESULT_PATH = FileUtil.getHomeDir + "deployment/"
-
-  //private val IMAGE_PATH = FileUtil.getHomeDir + "images"
 
   /** the builder DHTML application */
   private val RESULT_BUILDER_FILE = RESULT_PATH + "technique_builder.html"
@@ -51,30 +49,26 @@ object AikidoAppGenerator {
     * @param fileName the tile that will be written to
     */
   @throws[IOException]
-  def generateHTMLAppFromDom(document: Document, fileName: String): Unit = {
+  def generateHTMLAppFromDom(document: Document, fileName: String): Unit =
     new AppHtmlGenerator().generateHTMLApp(document, fileName)
-  }
 
-  def main(args: Array[String]): Unit = {
-    var document: Document = null
-    var filename = DEFAULT_INPUT_FILE
-    if (args.length == 1) filename = args(0)
-    else {
-      println("Usage: <xml file containing data>")
-      println("Since no argument was supplied, " + filename + " will be used.")
-    }
+  def main(args: Array[String]): Unit =
+    val filename =
+      if args.length == 1 then args(0)
+      else
+        println("Usage: <xml file containing data>")
+        println(s"Since no argument was supplied, $DEFAULT_INPUT_FILE will be used.")
+        DEFAULT_INPUT_FILE
     val file = new File(filename)
-    println("parsing xml from " + file)
-    document = DomUtil.parseXMLFile(file)
-    try {
+    println(s"parsing xml from $file")
+    val document = DomUtil.parseXMLFile(file)
+    try
       generateHTMLAppFromDom(document, RESULT_BUILDER_FILE)
-      var config = new AllTechniqueConfig(false, 160, 10, 0, false)
-      new AllTechniqueHtmlGenerator(config).generateAllElementsFromDom(document, RESULT_ALL_FILE)
-      config = new AllTechniqueConfig(true, 100, 9, 0, true)
-      new AllTechniqueHtmlGenerator(config).generateAllElementsFromDom(document, RESULT_UNIQUE_FILE)
-    } catch {
+      new AllTechniqueHtmlGenerator(
+        AllTechniqueConfig(debug = false, imageSize = 160, fontSize = 10, borderWidth = 0, showOnlyUniqueImages = false)
+      ).generateAllElementsFromDom(document, RESULT_ALL_FILE)
+      new AllTechniqueHtmlGenerator(
+        AllTechniqueConfig(debug = true, imageSize = 100, fontSize = 9, borderWidth = 0, showOnlyUniqueImages = true)
+      ).generateAllElementsFromDom(document, RESULT_UNIQUE_FILE)
+    catch
       case e: IOException => e.printStackTrace()
-    }
-  }
-
-}

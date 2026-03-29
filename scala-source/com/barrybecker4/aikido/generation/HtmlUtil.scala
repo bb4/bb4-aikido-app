@@ -4,14 +4,16 @@ package com.barrybecker4.aikido.generation
 /**
   * @author Barry Becker
   */
-object HtmlUtil {
+object HtmlUtil:
+
   def getHTMLHead(title: String): String =
-      "<!DOCTYPE>\n" +
+    val t = GenerationEscape.escapeHtmlText(title)
+    "<!DOCTYPE html>\n" +
       "<html>\n" +
       "<head>\n" +
       "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
-      "<title>" + title + "</title>" + "\n\n"
+      "<title>" + t + "</title>" + "\n\n"
 
-  def getScriptOpen = "<script language=\"JavaScript\">"
-  def getScriptClose = "</script>"
-}
+  def getScriptOpen: String = "<script>"
+
+  def getScriptClose: String = "</script>"

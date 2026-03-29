@@ -5,52 +5,54 @@ import org.w3c.dom.NamedNodeMap
 import org.w3c.dom.Node
 
 
-object NodeInfo {
+object NodeInfo:
   private val IMG_SUFFIX = ".jpg"
-}
+
+  private case class Parsed(
+      id: String | Null,
+      image: String | Null,
+      label: String | Null,
+      description: String | Null
+  )
+
+  private def parseAttributes(imagePath: String, node: Node): Parsed =
+    val attributeMap: NamedNodeMap | Null = node.getAttributes
+    if attributeMap == null || node.getNodeName != "node" then
+      Parsed(null, null, null, null)
+    else
+      var id: String | Null = null
+      var image: String | Null = null
+      var label: String | Null = null
+      var description: String | Null = null
+      var i = 0
+      while i < attributeMap.getLength do
+        val attr = attributeMap.item(i)
+        val name = attr.getNodeName
+        name match
+          case "id" =>
+            id = attr.getNodeValue
+            image = imagePath + id + IMG_SUFFIX
+          case "label" =>
+            label = attr.getNodeValue
+          case "description" =>
+            description = attr.getNodeValue
+          case _ =>
+            throw IllegalArgumentException(s"Unexpected attribute '$name' on element.")
+        i += 1
+      Parsed(id, image, label, description)
 
 /**
   * Represents a XML element (i.e. a step in the technique) in the document object model (DOM).
   * @author Barry Becker
   */
-class NodeInfo private[generation](val imagePath: String, val node: Node) {
-  val attributeMap: NamedNodeMap = node.getAttributes
+class NodeInfo private[generation](val imagePath: String, val node: Node):
 
-  private var id: String = _
-  private var image: String = _
-  private var label: String = _
-  private var description: String = _
+  private val p: NodeInfo.Parsed = NodeInfo.parseAttributes(imagePath, node)
 
-  if (attributeMap == null || !("node" == node.getNodeName)) {
-    id = null
-    image = null
-    label = null
-  }
-  else {
-    var i = 0
-    while (i < attributeMap.getLength) {
-      val attr = attributeMap.item(i)
-      val name = attr.getNodeName
-      name match {
-        case "id" =>
-          id = attr.getNodeValue
-          // the id gets reused for the image name
-          image = imagePath + attr.getNodeValue + NodeInfo.IMG_SUFFIX
-        case "label" =>
-          label = attr.getNodeValue
-        case "description" =>
-          description = attr.getNodeValue
-        case _ => throw new IllegalArgumentException("Unexpected attribute '" + name + "' on element.")
-      }
-      i += 1
-    }
-  }
-
-  private[generation] def getId = id
-  private[generation] def getImage = image
-  private[generation] def getLabel = label
+  private[generation] def getId: String | Null = p.id
+  private[generation] def getImage: String | Null = p.image
+  private[generation] def getLabel: String | Null = p.label
 
   /** @return the description, or label if no description was provided. */
-  private[generation] def getDescription =
-    if (description != null) description else label
-}
+  private[generation] def getDescription: String | Null =
+    if p.description != null then p.description else p.label
