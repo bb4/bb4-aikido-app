@@ -1,7 +1,7 @@
 plugins {
-    id 'com.barrybecker4.bb4.scala-library' version '2.0-SNAPSHOT'
-    id 'com.barrybecker4.bb4.publish' version '2.0-SNAPSHOT'
-    id 'com.barrybecker4.bb4.application' version '2.0-SNAPSHOT'
+    id 'com.barrybecker4.bb4.scala-library' version '2.0.0'
+    id 'com.barrybecker4.bb4.publish' version '2.0.0'
+    id 'com.barrybecker4.bb4.application' version '2.0.0'
 }
 
 description = 'Aikido app generator'
@@ -13,6 +13,10 @@ bb4 {
     mainClass.set('com.barrybecker4.aikido.AikidoAppGenerator')
 }
 
+repositories {
+    mavenLocal()
+}
+
 dependencies {
-    implementation 'com.barrybecker4:bb4-common:2.0-SNAPSHOT'
+    implementation 'com.barrybecker4:bb4-common:2.1-SNAPSHOT'
 }
