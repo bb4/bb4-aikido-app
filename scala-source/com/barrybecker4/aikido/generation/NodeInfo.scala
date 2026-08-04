@@ -20,26 +20,20 @@ object NodeInfo:
     if attributeMap == null || node.getNodeName != "node" then
       Parsed(null, null, null, null)
     else
-      var id: String | Null = null
-      var image: String | Null = null
-      var label: String | Null = null
-      var description: String | Null = null
-      var i = 0
-      while i < attributeMap.getLength do
+      (0 until attributeMap.getLength).foldLeft(Parsed(null, null, null, null)) { (acc, i) =>
         val attr = attributeMap.item(i)
         val name = attr.getNodeName
+        val value = attr.getNodeValue
         name match
           case "id" =>
-            id = attr.getNodeValue
-            image = imagePath + id + IMG_SUFFIX
+            acc.copy(id = value, image = imagePath + value + IMG_SUFFIX)
           case "label" =>
-            label = attr.getNodeValue
+            acc.copy(label = value)
           case "description" =>
-            description = attr.getNodeValue
+            acc.copy(description = value)
           case _ =>
             throw IllegalArgumentException(s"Unexpected attribute '$name' on element.")
-        i += 1
-      Parsed(id, image, label, description)
+      }
 
 /**
   * Represents a XML element (i.e. a step in the technique) in the document object model (DOM).
