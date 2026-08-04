@@ -91,28 +91,23 @@ class AllTechniqueHtmlGenerator(val config: AllTechniqueConfig = AllTechniqueCon
   /** Write the row of titles */
   private def techniqueStepsRow(parentList: mutable.ArrayBuffer[NodeInfo], buf: StringBuilder): Unit =
     buf.append("  <tr style=\"white-space:nowrap; font-size:").append(config.fontSize).append("\">\n")
-    var i = 1
     buf.append("    <td>" + rowNumber + "</td>")
     rowNumber += 1
 
-    while i < parentList.length do
-      val info = parentList(i)
+    for info <- parentList.view.drop(1) do
       val label = if config.debug then info.getId else info.getLabel
       buf.append("    <td title=\"")
         .append(GenerationEscape.escapeHtmlAttribute(info.getDescription))
         .append("\" style=\"width:50px; max-width:150px; height:20; overflow:hidden;\">\n")
         .append(GenerationEscape.escapeHtmlText(label))
       buf.append("    </td>\n")
-      i += 1
     buf.append("  </tr>\n")
 
   /** Write the row of thumbnail images under the titles. */
   private def thumbnailImageRow(parentList: mutable.ArrayBuffer[NodeInfo], buf: StringBuilder): Unit =
     buf.append("  <tr>\n")
     buf.append("    <td></td>")
-    var i = 1
-    while i < parentList.length do
-      val info = parentList(i)
+    for info <- parentList.view.drop(1) do
       buf.append("    <td>\n")
       if !config.showOnlyUniqueImages || !imageSet.contains(info.getId) then
         buf.append("      <img src=\"")
@@ -123,5 +118,4 @@ class AllTechniqueHtmlGenerator(val config: AllTechniqueConfig = AllTechniqueCon
         imagesShown += 1
       potentialImages += 1
       buf.append("    </td>\n")
-      i += 1
     buf.append("  </tr>\n")
