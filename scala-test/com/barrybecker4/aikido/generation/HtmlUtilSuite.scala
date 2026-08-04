@@ -13,6 +13,15 @@ class HtmlUtilSuite extends AnyFunSuite:
     }
   }
 
+  test("escapes markup characters in title") {
+    val head = HtmlUtil.getHTMLHead("a&b<c>")
+    assert(head.contains("<title>a&amp;b&lt;c&gt;</title>"))
+  }
+
   test("script open is plain script tag") {
     assert(HtmlUtil.getScriptOpen == "<script>")
+  }
+
+  test("script close is plain script end tag") {
+    assert(HtmlUtil.getScriptClose == "</script>")
   }
