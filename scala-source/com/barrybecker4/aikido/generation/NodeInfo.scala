@@ -9,28 +9,28 @@ object NodeInfo:
   private val IMG_SUFFIX = ".jpg"
 
   private case class Parsed(
-      id: String | Null,
-      image: String | Null,
-      label: String | Null,
-      description: String | Null
+      id: Option[String] = None,
+      image: Option[String] = None,
+      label: Option[String] = None,
+      description: Option[String] = None
   )
 
   private def parseAttributes(imagePath: String, node: Node): Parsed =
     val attributeMap: NamedNodeMap | Null = node.getAttributes
     if attributeMap == null || node.getNodeName != "node" then
-      Parsed(null, null, null, null)
+      Parsed()
     else
-      (0 until attributeMap.getLength).foldLeft(Parsed(null, null, null, null)) { (acc, i) =>
+      (0 until attributeMap.getLength).foldLeft(Parsed()) { (acc, i) =>
         val attr = attributeMap.item(i)
         val name = attr.getNodeName
         val value = attr.getNodeValue
         name match
           case "id" =>
-            acc.copy(id = value, image = imagePath + value + IMG_SUFFIX)
+            acc.copy(id = Some(value), image = Some(imagePath + value + IMG_SUFFIX))
           case "label" =>
-            acc.copy(label = value)
+            acc.copy(label = Some(value))
           case "description" =>
-            acc.copy(description = value)
+            acc.copy(description = Some(value))
           case _ =>
             throw IllegalArgumentException(s"Unexpected attribute '$name' on element.")
       }
@@ -43,10 +43,10 @@ class NodeInfo private[generation](val imagePath: String, val node: Node):
 
   private val p: NodeInfo.Parsed = NodeInfo.parseAttributes(imagePath, node)
 
-  private[generation] def getId: String | Null = p.id
-  private[generation] def getImage: String | Null = p.image
-  private[generation] def getLabel: String | Null = p.label
+  private[generation] def getId: String | Null = p.id.orNull
+  private[generation] def getImage: String | Null = p.image.orNull
+  private[generation] def getLabel: String | Null = p.label.orNull
 
   /** @return the description, or label if no description was provided. */
   private[generation] def getDescription: String | Null =
-    if p.description != null then p.description else p.label
+    p.description.orElse(p.label).orNull
