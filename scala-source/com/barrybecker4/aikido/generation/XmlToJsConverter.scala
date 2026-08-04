@@ -27,8 +27,8 @@ class XmlToJsConverter:
     val root = document.getDocumentElement
     val imgPath = DomUtil.getAttribute(root, "imgpath")
     val rootElems = DomNodeUtil.elementChildren(root)
-    for i <- rootElems.indices do
-      val refId = DomNodeUtil.childReferenceId(rootElems(i))
+    for (child, i) <- rootElems.zipWithIndex do
+      val refId = DomNodeUtil.childReferenceId(child)
       buf.append("  attacks[").append(i).append("]='")
         .append(GenerationEscape.escapeJsString(refId)).append("';\n")
     buf.append(genJSForNode(root, imgPath))
