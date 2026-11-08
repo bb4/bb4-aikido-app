@@ -5,14 +5,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aikido Technique Builder Technical Description</title>
+  <link rel="stylesheet" href="aikido.css">
 </head>
 
-<body style="background-color: #effff2; margin:40px">
+<body class="desc-page">
 
-<h1 style="font-size: 1.5em; text-decoration: underline;">Aikido
-Technique Builder Technical Description</h1>
+<h1 class="page-title">Aikido Technique Builder Technical Description</h1>
+<br>
 <p>
 First I created an XML file that specifies the technique hierarchy.
     Inside it, I allow references to other subtrees of techniques that are defined elsewhere in the file using the &lt;use&gt; tag.
@@ -25,9 +27,7 @@ First I created an XML file that specifies the technique hierarchy.
     This enforces the legal structure of the data file when it gets parsed. This avoids much difficult debugging.
     Legal &lt;node&gt; attributes are only <code>id</code>, <code>label</code>, and optional <code>description</code>; image paths are derived as <code>imgpath</code> + <code>id</code> + <code>".jpg"</code>, not from an attribute on the node.
     Here is a snippet from the XML datafile:
-</p>
-<pre style="font-size: smaller; white-space: pre-wrap;">
-&lt;?xml version="1.0"?&gt;
+</p><pre class="code-sample">&lt;?xml version="1.0"?&gt;
 &lt;!DOCTYPE hierarchy SYSTEM "hierarchy.dtd"&gt;
 &lt;hierarchy title="Katate dori technique hierarchy" imgpath="images/katate_dori/" date="10/19/2014" author="Barry Becker"&gt;
   &lt;node id="katate_dori" label="katate dori" description="left wrist grab"&gt;

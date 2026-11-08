@@ -27,6 +27,7 @@
         setBigImage(imageRow, stepNum, selectedVal);
 
         var tdSelect = document.createElement("td");
+        tdSelect.className = "step-cell";
         var newSelect = createNewSelector(stepNum);
 
         var nextSelectOptions = next[selectedVal];
@@ -57,10 +58,10 @@
 
         tdSelect.appendChild(newSelect);
         var tdImage = document.createElement("td");
+        tdImage.className = "step-cell";
 
         var newImage = createNewImage(stepNum, onlyOneChild, nextSelectOptions, selectedVal);
-        var newImageAnchor = createImageAnchor(newImage);
-        tdImage.appendChild(newImageAnchor);
+        tdImage.appendChild(newImage);
 
         selectRow.insertBefore(tdSelect, selectRow.children[stepNum + 1]);
         imageRow.insertBefore(tdImage, imageRow.children[stepNum + 1]);
@@ -86,14 +87,20 @@
 
     /** Set the current large image at the bottom */
     function setBigImage(imageRow, stepNum, selectedVal) {
-        var currentImage = imageRow.children[stepNum].children[0].children[0];
+        var currentImage = imageRow.children[stepNum].children[0];
         if (selectedVal == '-----') {
             currentImage.src = 'images/select.png';
             currentImage.title = "select something from the dropdown";
+            currentImage.alt = "Select a technique step";
         } else {
             currentImage.src = img[selectedVal];
             currentImage.title = desc[selectedVal];
+            currentImage.alt = label[selectedVal] || desc[selectedVal] || "Technique step";
         }
+        var bigImg = document.getElementById('big_image');
+        bigImg.src = currentImage.src;
+        bigImg.title = currentImage.title;
+        bigImg.alt = currentImage.alt;
     }
 
     /** create a new selector fpr the next step and its corresponding image  */
@@ -117,26 +124,24 @@
         var imageId = 'step' + (stepNum + 1) + '_image';
         var image = document.createElement("img");
         image.setAttribute('id', imageId);
-        image.setAttribute("title", onlyOneChild ? desc[selectedVal] : "Select something");
+        image.className = 'thumb';
+        var titleText = onlyOneChild ? desc[selectedVal] : "Select something";
+        var altText = onlyOneChild
+            ? (label[nextSelectOptions[0]] || desc[nextSelectOptions[0]] || "Technique step")
+            : "Select a technique step";
+        image.setAttribute("title", titleText);
+        image.setAttribute("alt", altText);
         image.setAttribute('src', onlyOneChild ? img[nextSelectOptions[0]] : 'images/select.png');
         image.setAttribute('width', '170');
         image.setAttribute('height', '130');
-        image.setAttribute("border", 0);
+        image.onmouseover = function anonymous() { mousedOnThumbnail(imageId); };
         return image;
-    }
-
-    /** return new image anchor tag */
-    function createImageAnchor(image) {
-        var imageAnchor = document.createElement("a");
-        imageAnchor.onmouseover = function anonymous() { mousedOnThumbnail(image.id); };
-        imageAnchor.appendChild(image);
-        return imageAnchor;
     }
 
     /** for debugging */
     function showVals(selectedVal, valuesList) {
         var textList = "selectedVal=" + selectedVal + "\n";
-        for (var i=0; i < valuesList.length; i++) {
+        for (var i = 0; i < valuesList.length; i++) {
            textList += valuesList[i] + "\n";
         }
         alert(textList);
@@ -148,6 +153,7 @@
         var bigImg = document.getElementById('big_image');
         bigImg.src = elImg.src;
         bigImg.title = elImg.title;
+        bigImg.alt = elImg.alt || elImg.title || "Technique step";
     }
 
     /**
