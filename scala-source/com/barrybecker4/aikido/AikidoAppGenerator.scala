@@ -61,14 +61,18 @@ object AikidoAppGenerator:
         DEFAULT_INPUT_FILE
     val file = new File(filename)
     println(s"parsing xml from $file")
-    val document = DomUtil.parseXMLFile(file)
-    try
-      generateHTMLAppFromDom(document, RESULT_BUILDER_FILE)
-      new AllTechniqueHtmlGenerator(
-        AllTechniqueConfig(debug = false, imageSize = 160, fontSize = 10, borderWidth = 0, showOnlyUniqueImages = false)
-      ).generateAllElementsFromDom(document, RESULT_ALL_FILE)
-      new AllTechniqueHtmlGenerator(
-        AllTechniqueConfig(debug = true, imageSize = 100, fontSize = 9, borderWidth = 0, showOnlyUniqueImages = true)
-      ).generateAllElementsFromDom(document, RESULT_UNIQUE_FILE)
-    catch
-      case e: IOException => e.printStackTrace()
+    DomUtil.parseXMLFile(file) match
+      case Some(document) =>
+        try
+          generateHTMLAppFromDom(document, RESULT_BUILDER_FILE)
+          new AllTechniqueHtmlGenerator(
+            AllTechniqueConfig(debug = false, imageSize = 160, fontSize = 10, borderWidth = 0, showOnlyUniqueImages = false)
+          ).generateAllElementsFromDom(document, RESULT_ALL_FILE)
+          new AllTechniqueHtmlGenerator(
+            AllTechniqueConfig(debug = true, imageSize = 100, fontSize = 9, borderWidth = 0, showOnlyUniqueImages = true)
+          ).generateAllElementsFromDom(document, RESULT_UNIQUE_FILE)
+        catch
+          case e: IOException => e.printStackTrace()
+      case None =>
+        System.err.println(s"Could not parse XML file: $file")
+        System.exit(1)
