@@ -1,0 +1,47 @@
+/* Local spacing and colors for legacy Yahoo PageBuilder pages.
+   Replaces dead GeoCities background and spacer image hotlinks. */
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+a:link {
+  color: #0000ff;
+}
+
+a:visited {
+  color: #ff0000;
+}
+
+.page {
+  box-sizing: border-box;
+  max-width: 634px;
+  margin: 0 auto;
+  padding: 23px 36px 24px;
+}
+
+.page-title {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+.content {
+  font-size: 14px;
+}
+
+.disclaimer {
+  color: #cc0000;
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+  margin: 18px 0 19px;
+}
+
+.testing-content {
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+}
