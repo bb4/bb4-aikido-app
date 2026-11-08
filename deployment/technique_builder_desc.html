@@ -2,17 +2,18 @@
   ~ Copyright by Barry G. Becker, 2014. Licensed under MIT License: http://www.opensource.org/licenses/MIT
   -->
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aikido Technique Builder Technical Description</title>
+  <link rel="stylesheet" href="aikido.css">
 </head>
 
-<body style="background-color: #effff2; margin:40px">
+<body class="desc-page">
 
-<big><big style="font-weight: bold; text-decoration: underline;">Aikido
-Technique Builder Technical Description</big></big><br>
+<h1 class="page-title">Aikido Technique Builder Technical Description</h1>
 <br>
 <p>
 First I created an XML file that specifies the technique hierarchy.
@@ -23,40 +24,39 @@ First I created an XML file that specifies the technique hierarchy.
     (Document Type Definition) for my XML hierarchy syntax.
     This enforces the legal structure of the data file when it gets parsed. This avoids much difficult debugging.
     Here is a snippet from the XML datafile:
-</p><pre><font size="-1"><xmp>
-<?xml version="1.0"?>
-<!DOCTYPE hierarchy SYSTEM "hierarchy.dtd">
-<hierarchy title="Katate dori technique hierarchy" imgpath="images/katate_dori/" date="10/19/2014" author="Barry Becker">
-  <node id="katate_dori" label="katate dori" description="left wrist grab">
-      <node id="tenkan_grabbed" label="tenkan entrance (grabbed)">
-          <node id="sumi_grabbed" label="sumi entrance (grabbed)">
-              <node id="sumi_otoshi_basic" label="sumi otoshi (basic)"/>
-              <node id="sumi_otoshi_elbow" label="sumi otoshi (elbow)"/>
-              <node id="sumi_otoshi_inside_shoulder" label="sumi otoshi (inside shoulder)" />
-              <node id="sumi_otoshi_outside_shoulder" label="sumi otoshi (outside shoulder)"/>
-              <node id="sumi_otoshi_head" label="sumi otoshi (head)" img="sumi_otoshi_head"/>
-              <node id="sumi_koshinage" label="sumi koshinage (morote seoinage)">
-                  <node id="koshinage_right_finish" label="koshinage finish" />
-              </node>
-              <node id="omote_uchi_zempo_nage" label="omote uchi zempo nage" >
-                  <node id="zempo_nage_left_finish" label="zempo nage" />
-              </node>
-              <node id="ikkyo_omote_entrance" label="ikkyo omote entrance">
-                  <node id="ikkyo_omote" label="ikkyo omote">
-                      <node id="ikkyo_pin" label="ikkyo pin"/>
-                  </node>
-                  <node id="nikkyo" label="nikkyo">
-                      <node id="nikkyo_ura_finish" label="nikkyo ura finish">
-                          <node id="nikkyo_pin" label="nikkyo pin"/>
-                      </node>
-                      <node id="nikkyo_omote_finish" label="nikkyo omote finish">
-                          <use ref="nikkyo_pin"/>
-                      </node>
-                  </node>
+</p><pre class="code-sample">&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE hierarchy SYSTEM "hierarchy.dtd"&gt;
+&lt;hierarchy title="Katate dori technique hierarchy" imgpath="images/katate_dori/" date="10/19/2014" author="Barry Becker"&gt;
+  &lt;node id="katate_dori" label="katate dori" description="left wrist grab"&gt;
+      &lt;node id="tenkan_grabbed" label="tenkan entrance (grabbed)"&gt;
+          &lt;node id="sumi_grabbed" label="sumi entrance (grabbed)"&gt;
+              &lt;node id="sumi_otoshi_basic" label="sumi otoshi (basic)"/&gt;
+              &lt;node id="sumi_otoshi_elbow" label="sumi otoshi (elbow)"/&gt;
+              &lt;node id="sumi_otoshi_inside_shoulder" label="sumi otoshi (inside shoulder)" /&gt;
+              &lt;node id="sumi_otoshi_outside_shoulder" label="sumi otoshi (outside shoulder)"/&gt;
+              &lt;node id="sumi_otoshi_head" label="sumi otoshi (head)" img="sumi_otoshi_head"/&gt;
+              &lt;node id="sumi_koshinage" label="sumi koshinage (morote seoinage)"&gt;
+                  &lt;node id="koshinage_right_finish" label="koshinage finish" /&gt;
+              &lt;/node&gt;
+              &lt;node id="omote_uchi_zempo_nage" label="omote uchi zempo nage" &gt;
+                  &lt;node id="zempo_nage_left_finish" label="zempo nage" /&gt;
+              &lt;/node&gt;
+              &lt;node id="ikkyo_omote_entrance" label="ikkyo omote entrance"&gt;
+                  &lt;node id="ikkyo_omote" label="ikkyo omote"&gt;
+                      &lt;node id="ikkyo_pin" label="ikkyo pin"/&gt;
+                  &lt;/node&gt;
+                  &lt;node id="nikkyo" label="nikkyo"&gt;
+                      &lt;node id="nikkyo_ura_finish" label="nikkyo ura finish"&gt;
+                          &lt;node id="nikkyo_pin" label="nikkyo pin"/&gt;
+                      &lt;/node&gt;
+                      &lt;node id="nikkyo_omote_finish" label="nikkyo omote finish"&gt;
+                          &lt;use ref="nikkyo_pin"/&gt;
+                      &lt;/node&gt;
+                  &lt;/node&gt;
           :::
           :::
-</hierarchy>
-</xmp></font></pre>
+&lt;/hierarchy&gt;
+</pre>
 <p>
   Next I shot the images at the dojo using a digital camera. The images were too large, so I resampled them using IRFan (a free image processing tool).
     One of the mistakes I made was to not batch the contrast and color correction. On my next attempt I will try photoshop or script GIMP.

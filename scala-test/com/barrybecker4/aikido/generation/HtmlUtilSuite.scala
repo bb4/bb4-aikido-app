@@ -7,7 +7,7 @@ class HtmlUtilSuite extends AnyFunSuite:
 
   test("get html file head") {
     assertResult(
-      "<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><title>foo</title>\n\n"
+      "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<link rel=\"stylesheet\" href=\"aikido.css\">\n<title>foo</title>\n\n"
     ) {
       HtmlUtil.getHTMLHead("foo")
     }

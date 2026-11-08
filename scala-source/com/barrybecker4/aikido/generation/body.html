@@ -1,33 +1,31 @@
-
-<body onload="doOnLoad()">
-<big>
-    <big style="font-weight: bold; text-decoration: underline;">Aikido Technique Builder</big>
-</big><br><br>
+<body class="builder-page" onload="doOnLoad()">
+<h1 class="page-title">Aikido Technique Builder</h1>
+<p>
 Build an aikido technique using successive drop-lists below.<br>
-There are still many missing images. More will be added later.<br><br>
-<font size='-1'>This application was built using XML, java and DHTML (<a href='technique_builder_desc.html'>more details</a>).</font>
-<br><br>
+There are still many missing images. More will be added later.<br>
+<span class="note">This application was built using XML, java and DHTML (<a href="technique_builder_desc.html">more details</a>).</span>
+</p>
 
-<table id='outerTable' width="100%" border="0">
+<table id="outerTable" class="outer-table">
   <tr>
     <td>
-      <div style="width:100%; overflow: auto; font-family:arial; font-size:60%;">
+      <div class="builder-scroll">
 
-        <table id='techniqueTable' width="100%" border="1">
+        <table id="techniqueTable" class="technique-table">
           <tr>
-            <td nowrap>
+            <td class="step-cell">
               <select id="step0_select" onchange="selectChanged('step0_select')"></select>
             </td>
-            <td nowrap width="100%">
+            <td class="filler-cell">
             </td>
           </tr>
           <tr>
-            <td nowrap>
-              <a onmouseover="mousedOnThumbnail('step0_image')">
-                <img id="step0_image" name="step1img" title="select something" src="images/select.png" border="0" width=170 height=130>
-              </a>
+            <td class="step-cell">
+              <img id="step0_image" class="thumb" title="select something" src="images/select.png"
+                   width="170" height="130" alt="Select a technique step"
+                   onmouseover="mousedOnThumbnail('step0_image')">
             </td>
-            <td nowrap width="100%">
+            <td class="filler-cell">
             </td>
           </tr>
         </table>
@@ -38,7 +36,7 @@ There are still many missing images. More will be added later.<br><br>
   <tr>
     <td>
       <div id="bigImgDiv">
-        <img id="big_image" name="step1img" src="images/select.png" border="1">
+        <img id="big_image" class="big-image" src="images/select.png" alt="Selected technique step">
       </div>
     </td>
   </tr>
