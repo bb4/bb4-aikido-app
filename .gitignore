@@ -8,7 +8,7 @@ bin/
 *.iml
 *.iws
 *.ipr
-deplyment/
+deployment/generated/
 out/
 .vscode/settings.json
 .bloop/
