@@ -26,11 +26,8 @@ jobs:
             ./gradlew build --info
           fi
 
-      - name: Generate HTML files
+      - name: Generate and verify HTML files
         run: ./scripts/generate-html.sh
-
-      - name: Verify generated HTML files
-        run: ./scripts/verify-generated-html.sh
 
       - name: Publish SNAPSHOT
         if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
