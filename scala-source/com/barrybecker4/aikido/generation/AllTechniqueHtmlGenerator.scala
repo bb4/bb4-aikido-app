@@ -77,19 +77,57 @@ class AllTechniqueHtmlGenerator(val config: AllTechniqueConfig = AllTechniqueCon
 
   /** @return html for the row representing the technique. Each cell (td) in the row is a different step. */
   private def genRowForNode(node: Node, parentList: mutable.ArrayBuffer[NodeInfo], imgPath: String): String =
+    genRowForNodeWithCycleGuard(node, parentList, imgPath, mutable.HashSet.empty[String])
+
+  private def genRowForNodeWithCycleGuard(
+      node: Node,
+      parentList: mutable.ArrayBuffer[NodeInfo],
+      imgPath: String,
+      visitedRefs: mutable.HashSet[String]
+  ): String =
     val buf = new StringBuilder
     val nodeInfo = new NodeInfo(imgPath, node)
     if nodeInfo.getId == null && config.debug then
       System.out.println("null id for " + node.getNodeName + ' ' + node.getNodeValue)
     parentList += nodeInfo
     val elemChildren = DomNodeUtil.elementChildren(node)
-    if elemChildren.isEmpty && nodeInfo.getId != null then
-      techniqueStepsRow(parentList, buf)
-      if config.showImages then thumbnailImageRow(parentList, buf)
-    for child <- elemChildren do
-      buf.append(genRowForNode(child, parentList, imgPath))
+    
+    if elemChildren.isEmpty then
+      node.getNodeName match
+        case "use" =>
+          val refId = DomUtil.getAttribute(node, "ref")
+          if refId != null && !visitedRefs.contains(refId) then
+            visitedRefs += refId
+            val referencedNode = findNodeById(node.getOwnerDocument.getDocumentElement, refId)
+            if referencedNode != null then
+              buf.append(genRowForNodeWithCycleGuard(referencedNode, parentList, imgPath, visitedRefs))
+            visitedRefs -= refId
+        case _ =>
+          if nodeInfo.getId != null then
+            techniqueStepsRow(parentList, buf)
+            if config.showImages then thumbnailImageRow(parentList, buf)
+    else
+      for child <- elemChildren do
+        buf.append(genRowForNodeWithCycleGuard(child, parentList, imgPath, visitedRefs))
+    
     parentList.remove(parentList.length - 1)
     buf.toString
+
+  /** Recursively search for a node with the given id attribute */
+  private def findNodeById(node: Node, id: String): Node | Null =
+    if node.getNodeType == Node.ELEMENT_NODE && node.getNodeName == "node" then
+      val nodeId = DomUtil.getAttribute(node, "id")
+      if nodeId == id then
+        return node
+    
+    val children = node.getChildNodes
+    var i = 0
+    while i < children.getLength do
+      val result = findNodeById(children.item(i), id)
+      if result != null then
+        return result
+      i += 1
+    null
 
   /** Write the row of titles */
   private def techniqueStepsRow(parentList: mutable.ArrayBuffer[NodeInfo], buf: StringBuilder): Unit =
