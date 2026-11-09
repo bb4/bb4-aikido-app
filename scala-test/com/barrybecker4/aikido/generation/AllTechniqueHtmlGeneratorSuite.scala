@@ -38,3 +38,38 @@ class AllTechniqueHtmlGeneratorSuite extends AnyFunSuite:
     finally
       Files.deleteIfExists(out)
   }
+
+  test("technique paths ending with use ref are included in generated html") {
+    val xmlWithUseRef =
+      """<?xml version="1.0"?>
+        |<hierarchy title="test" imgpath="images/" date="01/01/2020" author="test">
+        |  <node id="start" label="start" description="starting position">
+        |    <node id="entrance" label="entrance" description="entrance move">
+        |      <use ref="finish"/>
+        |    </node>
+        |  </node>
+        |  <node id="finish" label="finish" description="finishing move"/>
+        |</hierarchy>
+        |""".stripMargin
+    
+    val document = TestXmlDocuments.parse(xmlWithUseRef)
+    val out = Files.createTempFile("all-techniques-use-", ".html")
+    try
+      new AllTechniqueHtmlGenerator(
+        AllTechniqueConfig(debug = false, imageSize = 80, fontSize = 10, borderWidth = 0, showOnlyUniqueImages = false)
+      ).generateAllElementsFromDom(document, out.toString)
+
+      val html = Files.readString(out, StandardCharsets.UTF_8)
+      assert(html.contains("start"))
+      assert(html.contains("entrance"))
+      assert(html.contains("finish"))
+      
+      val startIndex = html.indexOf("start")
+      val entranceIndex = html.indexOf("entrance")
+      val finishIndex = html.indexOf("finish")
+      
+      assert(startIndex > 0 && entranceIndex > startIndex && finishIndex > entranceIndex,
+        "Expected technique row to include start, entrance, and finish in order")
+    finally
+      Files.deleteIfExists(out)
+  }
