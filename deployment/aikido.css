@@ -8,7 +8,29 @@ body.index-page,
 body.testing-page {
   margin: 0;
   background-color: #fff;
-  background-image: url("http://www.geocities.com/clipart/pbi/backgrounds/Generic/resume_bkgd.gif");
+}
+
+/* Semantic layout replacing Yahoo PageBuilder spacer tables. */
+body.index-page .page,
+body.testing-page .page {
+  box-sizing: border-box;
+  max-width: 634px;
+  margin: 0 auto;
+  padding: 23px 36px 24px;
+}
+
+body.index-page h1.page-title,
+body.testing-page h1.page-title {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  text-decoration: none;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+body.testing-page .disclaimer {
+  margin: 18px 0 19px;
 }
 
 body.grammar-page,
