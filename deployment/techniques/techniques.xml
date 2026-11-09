@@ -51,7 +51,7 @@
                     <use ref="zempo_nage_left_finish_toward_left"/>
                 </node>
                 <node description="Continue motion of left hand out and up, then tenkan, sweeping right leg 180 degrees to rear."
-                      id="soto_tenkan_zempo_naqe" label=" arc hand outside and tenkan">
+                      id="soto_tenkan_zempo_nage" label=" arc hand outside and tenkan">
                     <use ref="zempo_nage_left_finish_toward_left"/>
                 </node>
                 <node description="ikkyo omote entrance" id="ikkyo_omote_entrance" label="ikkyo omote entrance">
@@ -217,7 +217,7 @@
                             <node description="Rear naked choke." id="ushiro_kubishime_defense"
                                   label="ushiro kibishime"/>
                         </node>
-                        <node description="iriminage hip pull" id="irminage_hip_pull" label="iriminage hip pull"/>
+                        <node description="iriminage hip pull" id="iriminage_hip_pull" label="iriminage hip pull"/>
                         <use ref="iriminage_right_throw"/>
                         <use ref="iriminage_full_entrance_right"/>
                     </node>
@@ -539,7 +539,7 @@
               id="mentsuki_omote_irimi_arm_over" label="irimi entrance (arm over)">
             <use ref="iriminage_turn"/>
             <use ref="iriminage_full_entrance_right"/>
-            <use ref="irminage_hip_pull"/>
+            <use ref="iriminage_hip_pull"/>
             <use ref="iriminage_right_throw"/>
         </node>
         <node description="irimi entrance (arm under)" id="mentsuki_omote_irimi_arm_under"
