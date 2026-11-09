@@ -1,0 +1,155 @@
+/* Shared presentation for aikido static pages and generated HTML. */
+body {
+  color: #000;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+body.index-page,
+body.testing-page {
+  margin: 0;
+  background-color: #fff;
+}
+
+/* Semantic layout replacing Yahoo PageBuilder spacer tables. */
+body.index-page .page,
+body.testing-page .page {
+  box-sizing: border-box;
+  max-width: 634px;
+  margin: 0 auto;
+  padding: 23px 36px 24px;
+}
+
+body.index-page h1.page-title,
+body.testing-page h1.page-title {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  text-decoration: none;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+body.testing-page .disclaimer {
+  margin: 18px 0 19px;
+}
+
+body.grammar-page,
+body.desc-page,
+body.builder-page,
+body.all-techniques-page {
+  background-color: #effff2;
+}
+
+body.desc-page {
+  margin: 40px;
+}
+
+a {
+  color: #00f;
+}
+
+a:visited {
+  color: #f00;
+}
+
+.page-title {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1.5rem;
+  margin: 0 0 0.5em;
+}
+
+.headline {
+  font-size: 18px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.content {
+  font-size: 14px;
+}
+
+.note,
+.disclaimer {
+  font-size: 12px;
+}
+
+.disclaimer {
+  color: #c00;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.grammar-body {
+  font-family: Arial, sans-serif;
+}
+
+.grammar-heading {
+  text-align: center;
+}
+
+.grammar-table {
+  width: 820px;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+.grammar-table td {
+  padding: 8px;
+  vertical-align: top;
+}
+
+.code-sample {
+  font-size: 0.85em;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.builder-scroll {
+  width: 100%;
+  overflow: auto;
+  font-family: Arial, sans-serif;
+  font-size: 60%;
+}
+
+.outer-table,
+.technique-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.outer-table {
+  border: 0;
+}
+
+.technique-table {
+  border: 1px solid #000;
+}
+
+.step-cell {
+  white-space: nowrap;
+}
+
+.filler-cell {
+  white-space: nowrap;
+  width: 100%;
+}
+
+.thumb {
+  width: 170px;
+  height: 130px;
+  border: 0;
+  cursor: pointer;
+}
+
+.big-image {
+  border: 1px solid #000;
+}
+
+.spacer {
+  display: block;
+  border: 0;
+}
+
+.layout-table {
+  border: 0;
+  border-collapse: collapse;
+}

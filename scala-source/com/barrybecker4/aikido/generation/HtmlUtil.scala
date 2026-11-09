@@ -2,6 +2,7 @@
 package com.barrybecker4.aikido.generation
 
 /**
+  * Helpers for emitting modern HTML document scaffolding.
   * @author Barry Becker
   */
 object HtmlUtil:
@@ -9,10 +10,12 @@ object HtmlUtil:
   def getHTMLHead(title: String): String =
     val t = GenerationEscape.escapeHtmlText(title)
     "<!DOCTYPE html>\n" +
-      "<html>\n" +
+      "<html lang=\"en\">\n" +
       "<head>\n" +
-      "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">" +
-      "<title>" + t + "</title>" + "\n\n"
+      "<meta charset=\"utf-8\">\n" +
+      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" +
+      "<link rel=\"stylesheet\" href=\"aikido.css\">\n" +
+      "<title>" + t + "</title>\n\n"
 
   def getScriptOpen: String = "<script>"
 
