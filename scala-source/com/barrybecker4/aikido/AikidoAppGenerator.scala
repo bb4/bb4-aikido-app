@@ -5,7 +5,7 @@ import com.barrybecker4.aikido.generation.AllTechniqueConfig
 import com.barrybecker4.aikido.generation.AllTechniqueHtmlGenerator
 import com.barrybecker4.aikido.generation.AppHtmlGenerator
 import com.barrybecker4.common.util.FileUtil
-import com.barrybecker4.common.xml.DomUtil
+import com.barrybecker4.xml.DomUtil
 import org.w3c.dom.Document
 import java.io.File
 import java.io.IOException
